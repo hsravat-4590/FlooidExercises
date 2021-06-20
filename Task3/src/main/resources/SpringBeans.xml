@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 
     <bean id="helloWorldBean" class="com.example.task3.HelloWorld">
@@ -12,15 +16,5 @@
 
     <bean id="contextProvider" class="com.example.task3.ContextProvider"/>
 
-    <bean id="printService" class="com.example.task3.PrintService">
-        <constructor-arg ref="printClient"/>
-        <constructor-arg ref="printFormatter"/>
-    </bean>
-
-    <bean id="printFormatter" class="com.example.task3.PrintFormat">
-        <property name="header" value="Test Header"/>
-        <property name="footer" value="Test Footer- Change this by invoking setFooter() on the PrintFormat or set it in the bean"/>
-    </bean>
-
-    <bean id="printClient" class="com.example.task3.PrintClient"/>
+    <context:component-scan base-package="com.example.task3"/>
 </beans>

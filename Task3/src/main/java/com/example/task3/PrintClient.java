@@ -1,8 +1,11 @@
 package com.example.task3;
 
+import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
+@Component
 public class PrintClient {
 
     /**
