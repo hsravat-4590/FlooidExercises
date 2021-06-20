@@ -9,9 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Task3Application {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
+        ApplicationContext context = SpringApplication.run(Task3Application.class,args);
 
-        HelloWorld hiWorld = (HelloWorld) context.getBean("helloWorldBean");
+        HelloWorld hiWorld = (HelloWorld) context.getBean("helloWorld");
         hiWorld.printHello();
 
         PrintService service = context.getBean(PrintService.class);

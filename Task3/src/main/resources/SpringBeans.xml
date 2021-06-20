@@ -16,5 +16,4 @@
 
     <bean id="contextProvider" class="com.example.task3.ContextProvider"/>
 
-    <context:component-scan base-package="com.example.task3"/>
 </beans>
