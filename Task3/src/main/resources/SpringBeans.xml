@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="helloWorldBean" class="com.example.task3.HelloWorld">
+        <property name="name" value="Hanzalah"/>
+    </bean>
+
+    <bean id="contextProvider" class="com.example.task3.ContextProvider"/>
+
+    <bean id="printService" class="com.example.task3.PrintService"/>
+
+    <bean id="printFormatter" class="com.example.task3.PrintFormat">
+        <property name="header" value="Test Header"/>
+        <property name="footer" value="Test Footer- Change this by invoking setFooter() on the PrintFormat or set it in the bean"/>
+    </bean>
+
+    <bean id="printClient" class="com.example.task3.PrintClient"/>
+</beans>
