@@ -5,25 +5,20 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class PrintService implements ApplicationContextAware {
+public class PrintService {
 
-    private PrintClient mClient;
-    private PrintFormat mFormatter;
+    private final PrintClient mClient;
+    private final PrintFormat mFormatter;
     private ApplicationContext context;
 
-    private void initialise(){
-        mClient = context.getBean(PrintClient.class);
-        mFormatter = context.getBean(PrintFormat.class);
+    public PrintService(PrintClient client, PrintFormat formatter) {
+        mClient = client;
+        mFormatter = formatter;
     }
 
-    public void print(String outString){
+    public void print(String outString) {
         outString = mFormatter.formatString(outString);
         mClient.printOut(outString);
     }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        context = applicationContext;
-        initialise();
-    }
 }

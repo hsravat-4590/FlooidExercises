@@ -12,7 +12,10 @@
 
     <bean id="contextProvider" class="com.example.task3.ContextProvider"/>
 
-    <bean id="printService" class="com.example.task3.PrintService"/>
+    <bean id="printService" class="com.example.task3.PrintService">
+        <constructor-arg ref="printClient"/>
+        <constructor-arg ref="printFormatter"/>
+    </bean>
 
     <bean id="printFormatter" class="com.example.task3.PrintFormat">
         <property name="header" value="Test Header"/>
